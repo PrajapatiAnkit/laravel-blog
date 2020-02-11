@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\DB;
 class StudentController extends Controller
 {
 
-
     public function addStudent()
     {
         return view('student.addstudent');
