@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Student;
-use Dotenv\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -90,5 +89,33 @@ class StudentController extends Controller
 
       //  $_SESSION['message'] = 'Student deleted !';
         return redirect()->route('viewStudent');
+    }
+
+    public function errorLogs()
+    {
+
+        $errorFiles = scandir(storage_path('logs'));
+
+       return view('student.errorLogs',['errorLogFiles' => $errorFiles]);
+    }
+
+    public function downloadLogs($errorFileName)
+    {
+        $file_path = storage_path() .'/logs/'. $errorFileName;
+        if(file_exists($file_path)) {
+            header('Content-Description: File Transfer');
+            header('Content-Type: application/octet-stream');
+            header('Content-Disposition: attachment; filename="'.basename($file_path).'"');
+            header('Expires: 0');
+            header('Cache-Control: must-revalidate');
+            header('Pragma: public');
+            header('Content-Length: ' . filesize($file_path));
+            flush(); // Flush system output buffer
+            readfile($file_path);
+            die();
+        } else {
+            http_response_code(404);
+            die();
+        }
     }
 }

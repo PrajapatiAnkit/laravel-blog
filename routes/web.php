@@ -23,3 +23,5 @@ Route::post('/saveStudent','StudentController@saveStudent')->name('saveStudent')
 Route::get('/edit-student/{id}','StudentController@editStudent')->name('editStudent');
 Route::get('/delete-student/{id}','StudentController@deleteStudent')->name('deleteStudent');
 Route::post('/update-student/','StudentController@updateStudent')->name('updateStudent');
+Route::get('/error-logs','StudentController@errorLogs')->name('errorLogs');
+Route::get('/downloadLogs/{errorFileName}','StudentController@downloadLogs')->name('downloadLogs');

@@ -20,6 +20,7 @@
             <a href="{{ route('home') }}" class="list-group-item list-group-item-action bg-light">Home</a>
             <a href="{{route('addStudent')}}" class="list-group-item list-group-item-action bg-light">Add Student</a>
             <a href="{{route('viewStudent')}}" class="list-group-item list-group-item-action bg-light">View Student</a>
+            <a href="{{route('errorLogs')}}" class="list-group-item list-group-item-action bg-light">Error Logs</a>
         </div>
     </div>
 
