@@ -20,3 +20,6 @@ Route::get('/','HomeController@index');
 Route::get('/add-student','StudentController@addStudent')->name('addStudent');
 Route::get('/view-student','StudentController@viewStudent')->name('viewStudent');
 Route::post('/saveStudent','StudentController@saveStudent')->name('saveStudent');
+Route::get('/edit-student/{id}','StudentController@editStudent')->name('editStudent');
+Route::get('/delete-student/{id}','StudentController@deleteStudent')->name('deleteStudent');
+Route::post('/update-student/','StudentController@updateStudent')->name('updateStudent');

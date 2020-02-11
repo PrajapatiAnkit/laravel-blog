@@ -8,4 +8,5 @@ class Student extends Model
 {
     protected $table = 'blog_students';
    // protected $fillable = ['firstname','lastname', 'phone', 'department'];
+
 }

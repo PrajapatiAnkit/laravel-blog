@@ -4,25 +4,30 @@
     <div class="row">
         <div class="col-sm-12"><br/><br/>
             <center>Student List</center>
+            @if(Session::has('message'))
+                <div class="alert alert-success">
+                    <p>{{$message}}</p>
+                </div>
+            @endif
             <table class="table">
                 <tr>
-                    <th>ID</th>
+                    <th>Sr.</th>
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>Department</th>
                     <th>Phone No.</th>
                 </tr>
-               {{-- @foreach($employees as $employee)
+               @foreach($studentList as $sr=> $student)
                     <tr class = "text-center">
-                        <td>{{ $employee->id }}</td>
-                        <td>{{ $employee->firstname }}</td>
-                        <td>{{ $employee->lastname }}</td>
-                        <td>{{ $employee->department }}</td>
-                        <td>{{ $employee->phone }}</td>
-                        <td><a href="{{route('employees.edit',['id'=>$employee->id])}}" class = "btn btn-info">Edit</a></td>
-                        <td><a href="{{route('employees.destroy',['id'=>$employee->id])}}" class = "btn btn-danger">Delete</a></td>
+                        <td>{{ $sr+1 }}</td>
+                        <td>{{ $student->firstName }}</td>
+                        <td>{{ $student->lastName }}</td>
+                        <td>{{ $student->phone }}</td>
+                        <td>{{ $student->department }}</td>
+                        <td><a href="{{route('editStudent',['id'=>$student->id])}}" class = "btn btn-info">Edit</a></td>
+                        <td><a href="{{route('deleteStudent',['id'=>$student->id])}}" class = "btn btn-danger">Delete</a></td>
                     </tr>
-                @endforeach--}}
+                @endforeach
             </table>
         </div>
     </div>
