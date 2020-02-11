@@ -1,15 +1,18 @@
-@extends('student.layouts.master')
-@section('title','Add Student')
+@extends('student.layouts.master2')
+@section('title','Edit Student')
 @section('content')
+    <div class="row">
+        <div class="col-md-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb" style="background-color:white">
+                    <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Edit Student</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
     <div class="row mt-5">
         <div class="col-sm-8 offset-sm-2">
-            <h3>Edit Student</h3>
-            @if(Session::has('message'))
-                <div class="alert alert-success">
-                    <p>{{$message}}</p>
-                </div>
-            @endif
-
 
             <form action="{{route('updateStudent')}}" method="post">
                 @csrf
@@ -34,7 +37,8 @@
                     <div style="color: red;font-size: 12px;">{{ $errors->first('department') }}</div>
                 </div>
                 <input type="hidden" name="editId" id="editId" value="{{Request::segment(2)}}"/>
-                <button type = "submit" name="submitBtn" id="submitBtn" class = "btn btn-success">Submit</button>
+                <button type = "submit" name="submitBtn" id="submitBtn" class = "btn btn-success">Update <i class="fa fa-check-square-o" aria-hidden="true"></i>
+                </button>
             </form>
         </div>
     </div>

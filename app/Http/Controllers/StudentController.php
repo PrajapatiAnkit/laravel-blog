@@ -34,15 +34,12 @@ class StudentController extends Controller
         $student->phone =  $request->input('phone');
         $student->department =  $request->input('department');
         $student->save();
-
-       // $request->session()->flash('message','success');
-        return redirect()->route('addStudent');
+        return redirect()->route('viewStudent')->with('success','New Student Added !!');
     }
 
     public function editStudent($id)
     {
         $studentDetail = Student::find($id);
-        //print_r($studentDetail);
         return view('student.editstudent',['studentDetail' => $studentDetail]);
     }
 
@@ -76,8 +73,7 @@ class StudentController extends Controller
             ->where(['id'=>$request->input('editId')] )
             ->update($updateData);
 
-       // $request->session()->flash('message','success');
-        return redirect()->route('viewStudent');
+        return redirect()->route('viewStudent')->with('success','Student Updated !!');
     }
 
     public function viewStudent()

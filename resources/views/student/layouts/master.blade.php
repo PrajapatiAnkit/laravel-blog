@@ -13,5 +13,6 @@
 <div class="container">
     @yield('content')
 </div>
+<script type="text/javascript" src="{{asset('assets/custom/js/custom-script.js')}}"></script>
 </body>
 </html>

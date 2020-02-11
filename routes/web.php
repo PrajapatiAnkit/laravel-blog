@@ -16,7 +16,7 @@
 });*/
 
 
-Route::get('/','HomeController@index');
+Route::get('/','HomeController@index')->name('home');
 Route::get('/add-student','StudentController@addStudent')->name('addStudent');
 Route::get('/view-student','StudentController@viewStudent')->name('viewStudent');
 Route::post('/saveStudent','StudentController@saveStudent')->name('saveStudent');
